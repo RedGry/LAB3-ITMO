@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 abstract class AHuman implements IHuman {
     private String name;
     private HandType type;
@@ -32,13 +34,32 @@ abstract class AHuman implements IHuman {
 
     @Override
     public int hashCode() {
-        return super.hashCode()+name.hashCode();
+        return Objects.hash(name, type, pName, location, x, y);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        boolean comp = obj.hashCode()== this.hashCode() ? true : false;
-        return comp;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AHuman aHuman = (AHuman) o;
+        return Objects.equals(name, aHuman.name) &&
+                type == aHuman.type &&
+                Objects.equals(pName, aHuman.pName) &&
+                Objects.equals(location, aHuman.location) &&
+                Objects.equals(x, aHuman.x) &&
+                Objects.equals(y, aHuman.y);
+    }
+
+    @Override
+    public String toString() {
+        return "AHuman{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                ", pName='" + pName + '\'' +
+                ", location=" + location +
+                ", x=" + x +
+                ", y=" + y +
+                '}';
     }
 
     @Override

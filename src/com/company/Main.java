@@ -25,5 +25,6 @@ public class Main {
         karlson.jump("Персик", persik.x, persik.y);
         System.out.println();
         karlson.Compress(persik.getName());
+        System.out.println();
     }
 }

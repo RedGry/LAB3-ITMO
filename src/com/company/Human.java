@@ -44,7 +44,7 @@ public class Human extends AHuman {
     }
 
 
-    public String Type(HandType type) {
+    private String Type(HandType type) {
         String _HandType;
         if (type == HandType.podgy) {
             _HandType = " пухленькими ручками";
@@ -76,10 +76,6 @@ public class Human extends AHuman {
         }
     }
 
-    @Override
-    public String toString() {
-        return this.toString();
-    }
 
     public void Compress(String obj) {
         String objname = obj;
@@ -107,7 +103,7 @@ public class Human extends AHuman {
         System.out.println(name + " побежала на место X: "+ setX(this.x)+ " | Y: "+ setY(this.y));
     }
 
-    public void took(double x, double y){
+    void took(double x, double y){
         this.x = x;
         this.y = y;
         OBJ.setX(x);
@@ -128,9 +124,24 @@ public class Human extends AHuman {
     }
 
 
-    public double setX(double x){this.x = x; return x;}
-    public double setY(double y){this.y = y; return y;}
+    private double setX(double x){this.x = x; return x;}
+    private double setY(double y){this.y = y; return y;}
     public void getCord() {
         System.out.println(this.name +" координата X: " + this.x + " | Y: " + this.y);
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                ", place='" + place + '\'' +
+                ", locations='" + locations + '\'' +
+                ", x=" + x +
+                ", y=" + y +
+                ", location=" + location +
+                ", type1=" + type1 +
+                ", gender=" + gender +
+                '}';
     }
 }
