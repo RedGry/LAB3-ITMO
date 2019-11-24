@@ -34,7 +34,7 @@ public class Teachers extends Human {
         else System.out.println(this.name + RandomPhrase());
     }
 
-    public String RandomPhrase(){
+    private String RandomPhrase(){
         int OneLenght = ListOne.length;
         int TwoLenght = ListTwo.length;
         int ThreeLenght = ListThree.length;

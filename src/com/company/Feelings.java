@@ -1,10 +1,20 @@
 package com.company;
 
 public enum Feelings {
-    EXCESS, //Избыток
-    GLADNESS, //Радость
-    ANGER, //Злость
-    ANGRY, //Сердитый
-    RUSH, //Торопиться
-    DISAPPROVINGLY; // Неодобрительно
+    EXCESS("избыточными"), //Избыток
+    GLADNESS ("радостными"), //Радость
+    ANGER("злыми"), //Злость
+    ANGRY("сердитыми"), //Сердитый
+    RUSH ("торопливыми"), //Торопиться
+    DISAPPROVINGLY (" неодобрительными "); // Неодобрительно
+
+    private String feel;
+
+    Feelings(String feel) {
+        this.feel = feel;
+    }
+
+    public String getFeel() {
+        return feel;
+    }
 }

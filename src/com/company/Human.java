@@ -44,22 +44,22 @@ public class Human extends AHuman {
         String _HandType;
         switch (type){
             case PODGY:
-                _HandType = " пухленькими ручками.";
+                _HandType = " пухленькими ручками";
                 break;
             case SMALL:
-                 _HandType = " маленькими ручками.";
+                 _HandType = " маленькими ручками";
                  break;
             case LONG:
-                _HandType = " длинными ручкками.";
+                _HandType = " длинными ручкками";
                 break;
             case THIN:
-                _HandType = " тонкими ручкками.";
+                _HandType = " тонкими ручкками";
                 break;
             case NORMAL:
-                _HandType = " обычными ручкками.";
+                _HandType = " обычными ручкками";
                  break;
             default:
-                _HandType = " ручками.";
+                _HandType = " ручками";
                 break;
         }
         return (_HandType);
@@ -69,26 +69,13 @@ public class Human extends AHuman {
         places = o.getName();
         x = o.getX();
         y = o.getY();
-        if (this.gender == Gender.FEMALE){
-            System.out.println('\n'+ name + " бросилась на место: " + places + ".");
-        }
-        else if (gender == Gender.MALE | gender == Gender.SHEMALE) {
-            System.out.println('\n'+ name + " бросился на место: " + places + ".");
-        }
-        if (name.equals("Карлсон") && o.getName().equals("Персик")){
-            System.out.println("Словно коршун на добычу.");
-        }
+        System.out.println('\n'+ name + " бросил" + this.gender.getGenderCase() + "ся на место: " + places + ".");
     }
 
     public void jump(Place place) {
         x = place.getX();
         y = place.getY();
-        if (gender == Gender.FEMALE){
-            System.out.println('\n'+ name + " бросилась на место: " + place.getName() + ".");
-        }
-        else if (gender.equals(Gender.MALE) | gender.equals(Gender.SHEMALE)) {
-            System.out.println('\n'+ name + " бросился на место: " + place.getName() + ".");
-        }
+            System.out.println('\n'+ name + " бросил" + this.gender.getGenderCase() + "ся на место: " + place.getName() + ".");
     }
 
     public void Compress(obj o) {
@@ -101,38 +88,26 @@ public class Human extends AHuman {
         this.place = place;
         this.x = x;
         this.y = y;
-        if (gender == Gender.FEMALE) {
-            System.out.println('\n'+ name + " положила " + o.getName() + ".");
-        }
-        else System.out.println('\n'+ name + " положил " + o.getName()+ ".");
+        System.out.println('\n'+ name + " положил" + this.gender.getGenderCase() + " " + o.getName()+ ".");
     }
 
     public void run(double x, double y) {
         this.x = x;
         this.y = y;
-        if (gender == Gender.MALE | gender == Gender.SHEMALE){
-            System.out.println('\n'+ name + " побежал на место X: "+ setX(this.x) + " | Y: "+ setY(this.y) + ".");
-        }
-        else
-            System.out.println('\n'+ name + " побежала на место X: "+ setX(this.x)+ " | Y: "+ setY(this.y) + ".");
+        System.out.println('\n'+ name + " побежал" + this.gender.getGenderCase() + " на место X: "+ setX(this.x) + " | Y: "+ setY(this.y) + ".");
     }
 
     public void run(Place place) {
         this.place = place;
         this.x = place.x;
         this.y = place.y;
-        if (this.gender == Gender.MALE | this.gender == Gender.SHEMALE){
-            System.out.println('\n'+ name + " побежал на метсо " + place.getName() + ".");
-        }
-        else
-            System.out.println('\n'+ name + " побежала на метсо " + place.getName() + ".");
+        System.out.println('\n'+ name + " побежал" + this.gender.getGenderCase() + " на место " + place.getName() + ".");
+
     }
 
     void take(obj o){
         if (this.place.getName().equals(o.place.getName())){
-            if (this.gender == Gender.FEMALE) {
-                System.out.println("\n" + name + " взяла " + o.getName() + ".");
-            } else System.out.println("\n" + name + " взял " + o.getName() + ".");
+                System.out.println("\n" + name + " взял" + this.gender.getGenderCase() + " " + o.getName() + ".");
         }
         else System.out.println("Обькт находится в другом месте.");
     }
@@ -140,10 +115,7 @@ public class Human extends AHuman {
     public void Throw(obj o){
         o.setX(Math.random()*10);
         o.setY(Math.random()*10);
-        if (this.gender == Gender.FEMALE) {
-            System.out.println('\n'+ name + " кинула " + o.getName() + ".");
-        }
-        else System.out.println('\n'+ name + " кинул " + o.getName() + ".");
+        System.out.println('\n'+ name + " кинул" + this.gender.getGenderCase() + " " + o.getName() + ".");
     }
 
     public void getCord() {
@@ -166,8 +138,8 @@ public class Human extends AHuman {
 
     public void fly(obj o){
         if (name == "Карлсон" && TypeButton == Button.ON) {
-            if (Feel == Feelings.GLADNESS){
-                System.out.println('\n' + name + " взмыл вверх с радостными воплями.");
+            if (Feel != null){
+                System.out.println('\n' + name + " взмыл вверх с " + this.Feel.getFeel() + " воплями.");
             }
             else {
                 System.out.println('\n' + name + " взмыл вверх.");
@@ -186,10 +158,10 @@ public class Human extends AHuman {
     public void PushButton(){
         if (name == "Карлсон") {
             if (Feel == Feelings.EXCESS) {
-                System.out.println('\n' + "От избытка чувтсв " + name + " нажал кнопку на животе.");
+                System.out.println('\n' + "От избытка чувств " + name + " нажал кнопку на животе.");
                 TypeButton = Button.ON;
             } else {
-                System.out.println('\n' + name + " нажал кнопку на животе.");
+                System.out.println('\n' + name + " нажал" + this.gender.getGenderCase() + " кнопку на животе.");
                 TypeButton = Button.ON;
             }
         }
@@ -213,14 +185,14 @@ public class Human extends AHuman {
         }
 
     public void flap(){
-        System.out.println('\n' + name + " решил махнуть на всё рукой.");
+        System.out.println('\n' + name + " решил" + this.gender.getGenderCase() + " махнуть на всё рукой.");
     }
 
     public void disappeared(Place p){
         if (p.getName().equals("Неизвестно")) {
             x = p.getX();
             y = p.getY();
-            System.out.println('\n' + name + " пропал в " + p.getName() + " месте.");
+            System.out.println('\n' + name + "изчез" + this.gender.getGenderCase() + " в " + p.getName() + " месте.");
         }
         else System.out.println('\n' + name + " пропал безвести.");
     }
@@ -230,7 +202,7 @@ public class Human extends AHuman {
         places = o.getName();
         x = o.getX();
         y = o.getY();
-        System.out.println('\n' + name + " исчез под обьектом " + places + ".");
+        System.out.println('\n' + name + " изчез" + this.gender.getGenderCase() + " под обьектом " + places + ".");
         if (name.equals("Карлсон")){
             Feel = Feelings.RUSH;
         }
@@ -238,9 +210,6 @@ public class Human extends AHuman {
 
     public void heard (Human h){
         System.out.println("\n" + name + " услышал персонажа " + h.getName() + ".");
-        if (h.places.equals("Стол") && h.Feel.equals(Feelings.RUSH)) {
-            System.out.println("Из под стола доносилось чавканье и причмокивание, словно кто-то торопливо ел что-то очень сочное.");
-        }
     }
 
     public void heard (){
@@ -279,7 +248,7 @@ public class Human extends AHuman {
             System.out.println("\n" + name + " может разрезать обькет " + o.getName() + ".");
         }
         else {
-            System.out.println("\n" + name + " не может разрезать обькт " + o.getName() +" т.к. нож находится в другом месте.");
+            System.out.println("\n" + name + " не может разрезать обьект " + o.getName() +" т.к. нож находится в другом месте.");
             this.Feel = Feelings.DISAPPROVINGLY;
         }
     }
