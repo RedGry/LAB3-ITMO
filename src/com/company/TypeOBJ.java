@@ -1,8 +1,8 @@
 package com.company;
 
 public enum TypeOBJ {
-    normal,     // Обычный
-    compressed, // Сдавленный
-    rotten,     // Гнилой
-    beautiful;  // Прекрасный
+    NORMAL,     // Обычный
+    COMPRESSED, // Сдавленный
+    ROTTEN,     // Гнилой
+    BEAUTIFUL;  // Прекрасный
 }

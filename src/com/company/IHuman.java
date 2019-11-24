@@ -2,9 +2,10 @@ package com.company;
 
 public interface IHuman {
     void run(Place place);
-    void jump(String name, double x, double y);
-    void getName();
-    void getX();
-    void getY();
+    String getName();
+    double getX();
+    double getY();
+    double setX(double x);
+    double setY(double y);
     HandType getHandType();
 }

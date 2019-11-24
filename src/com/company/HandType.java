@@ -1,9 +1,9 @@
 package com.company;
 
 public enum HandType {
-    podgy, // Пухленькие
-    small, // Короткие
-    _long, // Длинные
-    thin,  // Тонкие
-    normal;// Обычные
+    PODGY, // Пухленькие
+    SMALL, // Короткие
+    LONG, // Длинные
+    THIN,  // Тонкие
+    NORMAL;// Обычные
 }

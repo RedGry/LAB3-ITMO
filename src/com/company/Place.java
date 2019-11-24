@@ -1,23 +1,31 @@
 package com.company;
 
 public class Place {
+    public double x;
+    public double y;
     private String name;
-    private Coordinates location;
 
-    public Place(String _name){
-        name = _name;
-        location = null;
-        System.out.println("Место - " + name + " ( " + location.getName() + " )");
+    public Place(String name){
+        this.name = name;
+        System.out.println("Место - " + name);
     }
 
-    public Place(String _name, Coordinates _location){
-        name = _name;
-        location = _location;
-        System.out.println("Место - " + name + " ( " + location.getName() + " )");
+    public Place(String name, double x, double y){
+        this.name = name;
+        this.x = x;
+        this.y = y;
+        System.out.println("Место - " + name + " ( " + getX() + " / " + getY() + " )");
     }
 
-    public String getName(){ return name == null ? "..." : name; }
-    public Coordinates getLocation() {return location;}
+    public String getName(){ return name == null ? "..." : this.name; }
+
+    public double getX(){
+        return this.x;
+    }
+
+    public double getY(){
+        return this.y;
+    }
 
 
 }
