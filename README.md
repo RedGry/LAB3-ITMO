@@ -10,4 +10,5 @@
 **Диаграмма 2630:**  
 ![alt-текст](https://i.ibb.co/WyHQtY8/Package-company2.png "2630")  
 **Диаграмма 2630.5:**  
+![alt-текст](https://i.ibb.co/BgMsMqc/Package-company23.png "2630.5")  
 ![alt-текст](https://i.ibb.co/YQgQTDS/Package-company.png "2630.5")  
