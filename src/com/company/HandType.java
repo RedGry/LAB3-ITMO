@@ -4,6 +4,7 @@ public enum HandType {
     PODGY, // Пухленькие
     SMALL, // Короткие
     LONG, // Длинные
-    THIN,  // Тонкие
+    THIN ,  // Тонкие
     NORMAL;// Обычные
+
 }

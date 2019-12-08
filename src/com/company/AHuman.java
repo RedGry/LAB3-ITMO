@@ -79,25 +79,33 @@ abstract class AHuman implements IHuman {
         System.out.println(this.name +" бежит в место " + place.getName());
     }
 
-    private String Type(HandType type) {
-        String _HandType;
-        if (type == HandType.PODGY) {
-            _HandType = " пухленькими ручками.";
-        } else if (type == HandType.SMALL) {
-            _HandType = " маленькими ручками.";
-        } else if (type == HandType.LONG) {
-            _HandType = " длинными ручкками.";
-        } else if (type == HandType.THIN) {
-            _HandType = " тонкими ручкками.";
-        } else if (type == HandType.NORMAL) {
-            _HandType = " обычными ручкками.";
-        }else
-            _HandType = " ручками.";
-        return (_HandType);
-    }
-
     public Feelings setFeel(Feelings f) {
         this.Feel = f;
         return this.Feel;
+    }
+
+    public String Type(HandType type) {
+        String _HandType;
+        switch (type){
+            case PODGY:
+                _HandType = " пухленькими ручками";
+                break;
+            case SMALL:
+                _HandType = " маленькими ручками";
+                break;
+            case LONG:
+                _HandType = " длинными ручкками";
+                break;
+            case THIN:
+                _HandType = " тонкими ручкками";
+                break;
+            case NORMAL:
+                _HandType = " обычными ручкками";
+                break;
+            default:
+                _HandType = " ручками";
+                break;
+        }
+        return (_HandType);
     }
 }

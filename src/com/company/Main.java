@@ -1,8 +1,12 @@
 package com.company;
 
+import javafx.scene.control.Tab;
+
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        // Создаем место
+        // Создаем места
         double MAX_1 = 10.0;
         double MIN_1 = 0.0;
         double MAX_2 = 20.0;
@@ -17,22 +21,24 @@ public class Main {
         obj knife = new obj("Нож", 15, 17, Kitchen);
         obj Table = new obj("Стол",9, 5, Room_Malish);
 
-        Author Author = new Author("Астрид Линдгрен", Gender.FEMALE);
+        Author Author = new Author("Астрид Линдгрен", Gender.FEMALE){
+            public void speak(String text){
+                System.out.print("*" + name + "*: " +text);
+            }
+        };
 
         Human Mom = new Human("Мама", Gender.FEMALE, Kitchen.getX(), Kitchen.getY());
-        Human Karlson = new Human("Карлсон", Gender.MALE, HandType.PODGY, 0,0);
         Human Malish = new Human("Малыш", Gender.MALE, HandType.SMALL, 0, 0);
+        PropellerMan Karlson = new PropellerMan("Карлсон", Gender.MALE, HandType.PODGY, 0,0);
 
         Mom.setPlace(Kitchen);
         Karlson.setPlace(Room_Malish);
         Malish.setPlace(Room_Malish);
+        Karlson.setFeel(Feelings.EXCESS);
         System.out.println("============================================");
 
         //Указываем действия персонажам
-        Karlson.setFeel(Feelings.EXCESS);
-        Karlson.PushButton();
-        Karlson.setFeel(Feelings.GLADNESS);
-        Karlson.fly(lamp);
+        Karlson.FlyObj(lamp);
         Malish.flap();
         Malish.thinking(Karlson, "\t >Ведь Карлсон на самом деле вовсе не был шпионом -- значит, его могут задержать только за то, что он Карлсон. " +
                                     "\n\t >Наверное мама и папа испугались не за Карлсона, а за свой покой." +
@@ -50,28 +56,19 @@ public class Main {
             System.out.println("Вы вышли за территорию данного места и не можете положить обьект сюда!");
         }
 
-        Author.speak("Они снова стояли рядом посреди комнаты Малыша");
         Karlson.look();
         Karlson.jump(peach);
-        Author.speak("Словно коршун на добычу.");
         Karlson.Compress(peach);
         Karlson.cut(peach);
-        Karlson.SwayHead();
-
-        // Изменение место положение + действие
-        Author.speak("Чтобы разделить персик, нужен был нож:, и Малыш побежал в кухню.");
-        Malish.run(Kitchen);
-        Malish.take(knife);
+        Malish.search(knife);
         Karlson.disappeared(Table);
         Malish.run(Room_Malish);
-
-        //Указываем действия персонажам
         Malish.heard(Karlson);
-        Author.speak("Из под стола доносилось чавканье и причмокивание, словно кто-то торопливо ел что-то очень сочное.");
+        Author.speak("Из под " + Table.getName() + "а доносилось чавканье и причмокивание, словно кто-то торопливо ел что-то очень сочное.");
 
+        System.out.println("\n============================================");
         //Пасхалка
         try {
-            System.out.println("\n============================================");
             System.out.println();
             Teachers gg = new Teachers(args[0], Gender.MALE);
             gg.say();
